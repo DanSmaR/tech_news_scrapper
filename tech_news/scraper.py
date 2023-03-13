@@ -1,4 +1,4 @@
-# Requisito 1
+# Requisito 1 initial commit
 def fetch(url):
     """Seu código deve vir aqui"""
 
