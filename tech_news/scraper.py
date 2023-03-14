@@ -30,7 +30,11 @@ def scrape_updates(html_content: str):
 
 # Requisito 3
 def scrape_next_page_link(html_content):
-    """Seu código deve vir aqui"""
+    soup = BS(html_content, 'lxml')
+    try:
+        return soup.find('a', class_='next')['href']
+    except TypeError:
+        return None
 
 
 # Requisito 4
