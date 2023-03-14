@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup as BS
 import requests
 import time
 
@@ -18,8 +18,14 @@ def fetch(url: str):
 
 
 # Requisito 2
-def scrape_updates(html_content):
-    """Seu código deve vir aqui"""
+def scrape_updates(html_content: str):
+    soup = BS(html_content, 'lxml')
+    articles = soup.find_all('article', class_='entry-preview')
+    links = []
+    for article in articles:
+        article_link = article.find('h2', class_='entry-title').a['href']
+        links.append(article_link)
+    return links
 
 
 # Requisito 3
