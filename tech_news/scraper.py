@@ -1,8 +1,12 @@
+import sys
 from bs4 import BeautifulSoup as BS
 from typing import Optional, List, TypedDict
 import requests
 import time
 from tech_news.database import create_news
+
+
+sys.setrecursionlimit(100000)
 
 
 class NewsInfo(TypedDict):
